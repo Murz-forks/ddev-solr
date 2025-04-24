@@ -25,14 +25,10 @@ for local development requirements.
 
 Solr Cloud provides a lot of APIs to manage your collections, cores, schemas
 etc. Some of these APIs require a so-called "trusted" context. Solr therefore
-supports different technologies for authentication and authorization. The
-easiest one to configure is "Basic Authentication". This DDEV service comes with
-a simple pre-configured `security.json` to provide such a trusted context based
-on basic authentication. It creates a single administrative account having full
-access rights:
-
-- user: `solr`
-- password: `SolrRocks`
+supports different technologies for authentication and authorization. This DDEV 
+service comes with no authentication enabled by default, because it is usually 
+not needed for local setups. But you can find instructions below on how to 
+configure it.
 
 ## Getting started
 
@@ -234,5 +230,13 @@ Another important difference of ddev-solr compared to ddev-drupal9-solr is, that
 handle NLP models. So DDEV could be used with [search_api_solr_nlp](https://www.drupal.org/project/search_api_solr_nlp).
 
 ddev-solr supports third party Solr plugins/modules/libraries.
+
+## Configuring authentication
+
+The easiest one to configure is "Basic Authentication". To configure it you should copy the `.ddev/solr/security_auth.json` to the `.ddev/solr/security.json` file, and restart the project. This file contains a configuration with a a single administrative account having full access rights, using these credentials:
+- user: `solr`
+- password: `SolrRocks`
+
+More details about configuring auhtorization you can find [here](https://solr.apache.org/guide/solr/latest/deployment-guide/basic-authentication-plugin.html).
 
 **Contributed and maintained by [@mkalkbrenner](https://github.com/mkalkbrenner)**
